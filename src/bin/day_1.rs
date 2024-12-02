@@ -6,11 +6,11 @@ fn main() {
     let mut first_column = Vec::new();
     let mut second_column = Vec::new();
     for line in content.trim().lines() {
-        let a: Vec<i32> = line.split("   ").map(|result| {
+        let values: Vec<i32> = line.split("   ").map(|result| {
             result.parse::<i32>().unwrap()
         }).collect();
-        first_column.push(a[0]);
-        second_column.push(a[1]);
+        first_column.push(values[0]);
+        second_column.push(values[1]);
     }
 
     let distance = calculate_total_distance(first_column.clone(), second_column.clone());
