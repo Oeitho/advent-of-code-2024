@@ -75,10 +75,10 @@ fn are_levels_safe(levels: &Vec<i32>) -> bool {
         let first_level = levels[i];
         let second_level = levels[i + 1];
         let difference = second_level - first_level;
-        if is_increasing && (difference < 1 || difference > 3) {
+        if is_increasing && !(1..=3).contains(&difference) {
             return false;
         }
-        if !is_increasing && (difference > -1 || difference < -3) {
+        if !is_increasing && !(-3..=-1).contains(&difference) {
             return false;
         }
     }
